@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:FISStudent.h">
+   </FileRef>
+   <FileRef
+      location = "group:FISStudent.m">
+   </FileRef>
+   <FileRef
       location = "group:ios-tableview-sections.xcodeproj">
    </FileRef>
    <FileRef

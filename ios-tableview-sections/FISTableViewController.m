@@ -10,6 +10,8 @@
 
 @interface FISTableViewController ()
 
+@property (strong, nonatomic) NSMutableArray *students;
+
 @end
 
 @implementation FISTableViewController
@@ -17,31 +19,75 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.students = [NSMutableArray new];
+    
+    FISStudent *chris = [[FISStudent alloc]init];
+    chris.favoriteThings = [@[@"cheese", @"pizzas", @"monsters"] mutableCopy];
+    chris.studentName = @"Chris";
+    
+    FISStudent *salmaan = [[FISStudent alloc] init];
+    salmaan.favoriteThings = [@[@"movies", @"cheesepizza", @"yogurt", @"games"] mutableCopy];
+    salmaan.studentName = @"Salmaan";
+    
+    FISStudent *zain = [[FISStudent alloc]init];
+    zain.favoriteThings = [@[@"cheese", @"pizzas"] mutableCopy];
+    zain.studentName = @"Zain";
+    
+    [self.students addObject:chris];
+    [self.students addObject:salmaan];
+    [self.students addObject:zain];
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return (NSInteger)self.students.count ;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    FISStudent *sectionStudent = self.students[(NSUInteger)section];
+    NSInteger favoriteCount = (NSInteger)sectionStudent.favoriteThings.count;
+    return favoriteCount;
 }
 
-/*
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    FISStudent *studentAtSection = self.students[(NSUInteger)section];
+    return studentAtSection.studentName;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"expandingCell" forIndexPath:indexPath];
     
+    self.cellStudent = self.students[(NSUInteger)indexPath.section];
+    cell.textLabel.text = self.cellStudent.favoriteThings[(NSUInteger)indexPath.row];
+//    NSString *detailString = @"";
+//    for (NSString *thing in student.favoriteThings) {
+//        [detailString stringByAppendingString:thing];
+//        [detailString stringByAppendingString:@"\n"];
+//    }
+//    cell.detailTextLabel.text = detailString;
+//    
     // Configure the cell...
     
     return cell;
 }
-*/
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FISStudentDetailsTableViewController *studentDetailsVC = segue.destinationViewController;
+    studentDetailsVC.favoriteThings = self.cellStudent.favoriteThings;
+    
+    NSLog(@"%@", studentDetailsVC.favoriteThings);
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

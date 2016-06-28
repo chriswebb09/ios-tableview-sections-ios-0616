@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FISStudent.h"
+#import "FISStudentDetailsTableViewController.h"
+
+
 
 @interface FISTableViewController : UITableViewController
+
+@property (strong, nonatomic) FISStudent *cellStudent;
+
 
 @end

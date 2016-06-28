@@ -10,8 +10,10 @@
 		1D7A3280F12235E005A5C12D /* FISAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E846210A497472A9281E21A5 /* FISAppDelegate.m */; };
 		26D2EC7CF35DD0479B61847E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94348D747DA419CA40DE9A58 /* Images.xcassets */; };
 		274E004E2F7DFB4BCC1FA128 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D796E6247B49860304DD2D1 /* libPods-unit_tests.a */; };
-		4D55491F1BC8701D001E3D77 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D55491E1BC8701D001E3D77 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		4D55491F1BC8701D001E3D77 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D55491E1BC8701D001E3D77 /* Launch Screen.storyboard */; };
 		6191FE33C8C724323AD8B38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A711D06806FFFDF20B7AD /* Foundation.framework */; };
+		AF74D0091D22BEA9004CD423 /* FISStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF74D0081D22BEA9004CD423 /* FISStudent.m */; };
+		AF74D00C1D22BEC8004CD423 /* FISStudentDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF74D00B1D22BEC8004CD423 /* FISStudentDetailsTableViewController.m */; };
 		E245C2A81B1CF76F00438E2D /* FISTableViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E245C2A71B1CF76F00438E2D /* FISTableViewControllerSpec.m */; };
 		E2F260E31B17A41500949FCA /* FISTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F260E21B17A41500949FCA /* FISTableViewController.m */; };
 		E2F260E51B17A46100949FCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F260E41B17A46100949FCA /* Main.storyboard */; };
@@ -39,6 +41,10 @@
 		580773BEC9DC3EC5F1A56772 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		94348D747DA419CA40DE9A58 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC68BF55EAEDB623464BDDBF /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
+		AF74D0071D22BEA9004CD423 /* FISStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FISStudent.h; path = ../FISStudent.h; sourceTree = "<group>"; };
+		AF74D0081D22BEA9004CD423 /* FISStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FISStudent.m; path = ../FISStudent.m; sourceTree = "<group>"; };
+		AF74D00A1D22BEC8004CD423 /* FISStudentDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISStudentDetailsTableViewController.h; sourceTree = "<group>"; };
+		AF74D00B1D22BEC8004CD423 /* FISStudentDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISStudentDetailsTableViewController.m; sourceTree = "<group>"; };
 		BB0AC04B7B9D7DA42EE097D6 /* ios-tableview-sections-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ios-tableview-sections-Prefix.pch"; sourceTree = "<group>"; };
 		E245C2A71B1CF76F00438E2D /* FISTableViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISTableViewControllerSpec.m; sourceTree = "<group>"; };
 		E2F260E11B17A41500949FCA /* FISTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISTableViewController.h; sourceTree = "<group>"; };
@@ -159,11 +165,15 @@
 		EC51D7641E0C129D69C0A53E /* ios-tableview-sections */ = {
 			isa = PBXGroup;
 			children = (
+				AF74D0071D22BEA9004CD423 /* FISStudent.h */,
+				AF74D0081D22BEA9004CD423 /* FISStudent.m */,
 				F224206993A181C101511740 /* FISAppDelegate.h */,
 				E846210A497472A9281E21A5 /* FISAppDelegate.m */,
 				E2F260E41B17A46100949FCA /* Main.storyboard */,
 				E2F260E11B17A41500949FCA /* FISTableViewController.h */,
 				E2F260E21B17A41500949FCA /* FISTableViewController.m */,
+				AF74D00A1D22BEC8004CD423 /* FISStudentDetailsTableViewController.h */,
+				AF74D00B1D22BEC8004CD423 /* FISStudentDetailsTableViewController.m */,
 				3D5FD3E164430F289CEDA9F2 /* Resources */,
 			);
 			path = "ios-tableview-sections";
@@ -304,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF74D0091D22BEA9004CD423 /* FISStudent.m in Sources */,
 				E2F260E31B17A41500949FCA /* FISTableViewController.m in Sources */,
+				AF74D00C1D22BEC8004CD423 /* FISStudentDetailsTableViewController.m in Sources */,
 				1D7A3280F12235E005A5C12D /* FISAppDelegate.m in Sources */,
 				FE9C4F2FAFB524BA8C24F4F3 /* main.m in Sources */,
 			);
